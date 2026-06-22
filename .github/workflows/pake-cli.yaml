@@ -150,9 +150,8 @@ jobs:
             ARGS+=("--targets" "${{ inputs.targets }}")
           fi
 
-          # --- ĐOẠN LỆNH BƠM EXTENSION MỚI THÊM VÀO ---
-          ARGS+=("--inject-js" "./content.js")
-          ARGS+=("--inject-css" "./styles.css")
+          # Thêm file code content.js của bạn vào app
+          ARGS+=("--inject" "./content.js")
 
           echo "Running: node dist/cli.js ${ARGS[@]}"
           node dist/cli.js "${ARGS[@]}"
@@ -196,9 +195,8 @@ jobs:
             $args += "--hide-title-bar"
           }
 
-          # --- ĐOẠN LỆNH BƠM EXTENSION MỚI THÊM VÀO ---
-          $args += "--inject-js", "./content.js"
-          $args += "--inject-css", "./styles.css"
+          # Thêm file code content.js của bạn vào app
+          $args += "--inject", "./content.js"
 
           Write-Host "Running: node dist/cli.js $($args -join ' ')"
           node dist/cli.js $args
@@ -210,15 +208,16 @@ jobs:
         uses: actions/upload-artifact@v6
         with:
           name: ${{ inputs.name }}-macOS
-          path: ${{ inputs.name }}.dmg
+          path: "*.dmg"
           retention-days: 3
+          if-no-files-found: ignore
 
       - name: Upload DEB (Linux)
         if: runner.os == 'Linux'
         uses: actions/upload-artifact@v6
         with:
           name: ${{ inputs.name }}-Linux-deb
-          path: ${{ inputs.name }}.deb
+          path: "*.deb"
           retention-days: 3
           if-no-files-found: ignore
 
@@ -227,7 +226,7 @@ jobs:
         uses: actions/upload-artifact@v6
         with:
           name: ${{ inputs.name }}-Linux-AppImage
-          path: ${{ inputs.name }}.AppImage
+          path: "*.AppImage"
           retention-days: 3
           if-no-files-found: ignore
 
@@ -236,7 +235,7 @@ jobs:
         uses: actions/upload-artifact@v6
         with:
           name: ${{ inputs.name }}-Linux-rpm
-          path: ${{ inputs.name }}.rpm
+          path: "*.rpm"
           retention-days: 3
           if-no-files-found: ignore
 
@@ -245,7 +244,7 @@ jobs:
         uses: actions/upload-artifact@v6
         with:
           name: ${{ inputs.name }}-Linux-zst
-          path: ${{ inputs.name }}-*.pkg.tar.zst
+          path: "src-tauri/target/release/bundle/appimage/*.pkg.tar.zst"
           retention-days: 3
           if-no-files-found: ignore
 
@@ -254,8 +253,9 @@ jobs:
         uses: actions/upload-artifact@v6
         with:
           name: ${{ inputs.name }}-Windows
-          path: ${{ inputs.name }}.msi
+          path: "*.msi"
           retention-days: 3
+          if-no-files-found: ignore
 
       - name: Rust cache store
         uses: actions/cache/save@v4.2.0
