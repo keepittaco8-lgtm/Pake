@@ -150,6 +150,10 @@ jobs:
             ARGS+=("--targets" "${{ inputs.targets }}")
           fi
 
+          # --- ĐOẠN LỆNH BƠM EXTENSION MỚI THÊM VÀO ---
+          ARGS+=("--inject-js" "./content.js")
+          ARGS+=("--inject-css" "./styles.css")
+
           echo "Running: node dist/cli.js ${ARGS[@]}"
           node dist/cli.js "${ARGS[@]}"
 
@@ -191,6 +195,10 @@ jobs:
           if ("${{ inputs.hide_title_bar }}" -eq "true") {
             $args += "--hide-title-bar"
           }
+
+          # --- ĐOẠN LỆNH BƠM EXTENSION MỚI THÊM VÀO ---
+          $args += "--inject-js", "./content.js"
+          $args += "--inject-css", "./styles.css"
 
           Write-Host "Running: node dist/cli.js $($args -join ' ')"
           node dist/cli.js $args
