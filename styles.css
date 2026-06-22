@@ -3,67 +3,67 @@
 */
 
 .edu-export-group {
-    display: inline-flex;
-    gap: 8px;
-    margin-left: 12px;
-    align-items: center;
+  display: inline-flex;
+  gap: 8px;
+  margin-left: 12px;
+  align-items: center;
 }
 
 .edu-export-btn {
-    background: transparent;
-    border: 1px solid #e2e8f0;
-    color: #4b5563;
-    padding: 6px 10px;
-    border-radius: 6px;
-    font-size: 13px;
-    font-weight: 500;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    gap: 6px;
-    transition: all 0.2s ease-in-out;
-    font-family: inherit;
-    box-shadow: 0 1px 2px rgba(0,0,0,0.02);
+  background: transparent;
+  border: 1px solid #e2e8f0;
+  color: #4b5563;
+  padding: 6px 10px;
+  border-radius: 6px;
+  font-size: 13px;
+  font-weight: 500;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  transition: all 0.2s ease-in-out;
+  font-family: inherit;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.02);
 }
 
 .edu-export-btn:hover {
-    background: #f1f5f9;
-    border-color: #cbd5e1;
-    color: #0f172a;
+  background: #f1f5f9;
+  border-color: #cbd5e1;
+  color: #0f172a;
 }
 
 .edu-btn-word {
-    color: #3b82f6; 
-    border-color: #bfdbfe;
+  color: #3b82f6;
+  border-color: #bfdbfe;
 }
 
 .edu-btn-word:hover {
-    background: #eff6ff;
-    border-color: #93c5fd;
-    color: #1d4ed8;
+  background: #eff6ff;
+  border-color: #93c5fd;
+  color: #1d4ed8;
 }
 
 /* Graceful dark mode fallback */
 @media (prefers-color-scheme: dark) {
-    .edu-export-btn {
-        border-color: #475569;
-        color: #e2e8f0;
-    }
-    
-    .edu-export-btn:hover {
-        background: #334155;
-        border-color: #64748b;
-        color: #f8fafc;
-    }
+  .edu-export-btn {
+    border-color: #475569;
+    color: #e2e8f0;
+  }
 
-    .edu-btn-word {
-        color: #60a5fa;
-        border-color: #1e3a8a;
-    }
+  .edu-export-btn:hover {
+    background: #334155;
+    border-color: #64748b;
+    color: #f8fafc;
+  }
 
-    .edu-btn-word:hover {
-        background: #1e3a8a;
-        border-color: #3b82f6;
-        color: #eff6ff;
-    }
+  .edu-btn-word {
+    color: #60a5fa;
+    border-color: #1e3a8a;
+  }
+
+  .edu-btn-word:hover {
+    background: #1e3a8a;
+    border-color: #3b82f6;
+    color: #eff6ff;
+  }
 }
